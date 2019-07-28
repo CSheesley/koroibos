@@ -10,7 +10,9 @@ require 'rspec/rails'
 
 require 'simplecov'
 SimpleCov.start 'rails' do
- # this is where filters go
+  add_filter '/channels/'
+  add_filter '/mailers/'
+  add_filter '/jobs/'
 end
 
 Shoulda::Matchers.configure do |config|
