@@ -9,12 +9,13 @@ This is the final solo project for the Backend program at the Turing School of S
 `$ bundle install`  
 `$ rails db:create`  
 `$ rails db:migrate`  
-`rake task info to come - importing CSV data`  
+`$ rails olympic_data:import_2016`  
 
 ### Key Learnings
 48 hour timed Code Challenge  
 Schema Design  
-Importing CSV file  
+Creating a Rake Task
+Importing a CSV file  
 Continuous Integration  
 ActiveRecord  
 Serializers  
