@@ -9,6 +9,7 @@ gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'shoulda-matchers'
