@@ -9,6 +9,8 @@ gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  gem 'factory_bot_rails'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   gem 'pry'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
