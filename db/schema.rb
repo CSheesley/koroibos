@@ -10,10 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_07_28_154203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
 
+  create_table "events", force: :cascade do |t|
+    t.string "event_name"
+    t.bigint "sport_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sport_id"], name: "index_events_on_sport_id"
+  end
+
+  create_table "olympian_events", force: :cascade do |t|
+    t.string "games"
+    t.integer "medal"
+    t.bigint "olympian_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_olympian_events_on_event_id"
+    t.index ["olympian_id"], name: "index_olympian_events_on_olympian_id"
+  end
+
+  create_table "olympians", force: :cascade do |t|
+    t.string "name"
+    t.integer "sex"
+    t.integer "age"
+    t.integer "height"
+    t.integer "weight"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_olympians_on_team_id"
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.string "sport_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "country_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "events", "sports"
+  add_foreign_key "olympian_events", "events"
+  add_foreign_key "olympian_events", "olympians"
+  add_foreign_key "olympians", "teams"
 end
