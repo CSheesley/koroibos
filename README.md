@@ -1,24 +1,27 @@
 # README
+[![CircleCI](https://circleci.com/gh/CSheesley/koroibos.svg?style=svg)](https://circleci.com/gh/CSheesley/koroibos)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Project Description
+This is the final solo project for the Backend program at the Turing School of Software and Design. The goal is to treat this like a 48 hour take home [Code Challenge](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/take_home_challenge/prompts/olympic_spec.md) that one may receive during the interview process. We were given free choice of which language to use, and what we want to highlight when we present our work.
 
-Things you may want to cover:
+### Local Set-up
+`$ bundle install`
+`$ rails db:create`
+`$ rails db:migrate`
+`rake task info to come - importing CSV data`
 
-* Ruby version
+### Key Learnings
+- 48 hour timed Code Challenge  
+- Importing large CSV file  
+- Continuous Integration  
 
-* System dependencies
+### Versions
+Ruby - 2.4.1  
+Rails - 5.2.3  
+Bundler - 2.0.2  
 
-* Configuration
+### Links
+Heroku Link:   
+Project Spec: https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/take_home_challenge/prompts/olympic_spec.md
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Endpoint Documentation
