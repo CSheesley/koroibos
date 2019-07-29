@@ -3,10 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
 
-gem 'rails', '~> 5.2.3'
+gem 'active_model_serializers'
+gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'rails', '~> 5.2.3'
 
 group :development, :test do
   gem 'factory_bot_rails'
