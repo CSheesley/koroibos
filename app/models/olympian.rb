@@ -11,4 +11,19 @@ class Olympian < ApplicationRecord
   belongs_to :team
 
   enum sex: ['F', 'M']
+
+  def country
+    team.country_name
+  end
+
+  def sport
+    events[0].sport.sport_name
+  end
+
+  def medals_won
+    OlympianEvent.where(olympian_id: id)
+                 .where.not(medal: "NA")
+                 .count
+  end
+
 end
