@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Olympians API' do
   context 'GET api/v1/olympians' do
     before :each do
-      diving = create(:sport, sport_name:'Diving')
+      diving = create(:sport, sport_name: 'Diving')
       taekwondo = create(:sport, sport_name: 'Taekwondo')
       basketball = create(:sport, sport_name: 'Basketball')
 
@@ -15,10 +15,10 @@ describe 'Olympians API' do
       ahmad = create(:olympian, name:'Ahmad Abughaush', age: 20, team_id: jordan.id)
       ana = create(:olympian, name:'Ana Fernandez', age: 25, team_id: brazil.id)
 
-      high_dive = create(:event, event_name: "Swimming High Dive")
-      sparring = create(:event, event_name: "Taekwondo Sparring")
-      team_duel = create(:event, event_name: "Taekwondo Team Duel")
-      basketball = create(:event, event_name: "Basketball Women's Basketball")
+      high_dive = create(:event, event_name: "Swimming High Dive", sport: diving)
+      sparring = create(:event, event_name: "Taekwondo Sparring", sport: taekwondo)
+      team_duel = create(:event, event_name: "Taekwondo Team Duel", sport: taekwondo)
+      basketball = create(:event, event_name: "Basketball Women's Basketball", sport: basketball)
 
       create(:olympian_event, olympian_id: maha.id, event_id: high_dive.id, medal: 0)
       create(:olympian_event, olympian_id: ahmad.id, event_id: sparring.id, medal: 1)
@@ -32,32 +32,32 @@ describe 'Olympians API' do
 
       olympian_data = JSON.parse(response.body)
 
-      expected = '{
-                    "olympians":
+      expected =  {
+                    "olympians" =>
                       [
                         {
-                          "name": "Maha Abdalsalam",
-                          "team": "Egypt",
-                          "age": 18,
-                          "sport": "Diving",
-                          "total_medals_won": 0
+                          "name" => "Maha Abdalsalam",
+                          "team" => "Egypt",
+                          "age" => 18,
+                          "sport" => "Diving",
+                          "total_medals_won" => 0
                         },
                         {
-                          "name": "Ahmad Abughaush",
-                          "team": "Jordan",
-                          "age": 20,
-                          "sport": "Taekwondo",
-                          "total_medals_won": 2
+                          "name" => "Ahmad Abughaush",
+                          "team" => "Jordan",
+                          "age" => 20,
+                          "sport" => "Taekwondo",
+                          "total_medals_won" => 2
                         },
                         {
-                          "name": "Ana Fernandez",
-                          "team": "Brazil",
-                          "age": 25,
-                          "sport": "Basketball"
-                          "total_medals_won": 1
+                          "name" => "Ana Fernandez",
+                          "team" => "Brazil",
+                          "age" => 25,
+                          "sport" => "Basketball",
+                          "total_medals_won" => 1
                         }
                       ]
-                  }'
+                  }
 
       expect(response.status).to eq(200)
       expect(olympian_data).to eq(expected)
