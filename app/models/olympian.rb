@@ -12,6 +12,14 @@ class Olympian < ApplicationRecord
 
   enum sex: ['F', 'M']
 
+  def self.youngest
+    where(age: minimum(:age))
+  end
+
+  def self.oldest
+    where(age: maximum(:age))
+  end
+
   def country
     team.country_name
   end
