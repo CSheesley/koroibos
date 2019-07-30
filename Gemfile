@@ -10,6 +10,7 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'factory_bot_rails'
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   gem 'pry'
