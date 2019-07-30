@@ -205,6 +205,48 @@ body:
   }
 }
 ```
+---
+**GET /api/v1/events**  
+Returns all olympic events, which are displayed under the heading of their associated sport.
 
+Required Parameters:
+`no required parameters`
+
+Example Request:
+`GET https://koroibos-2016.herokuapp.com/api/v1/events`
+```
+Request:
+Content-Type: application/json
+Accept: application/json
+```
+```
+Response:
+status: 200
+body:
+{
+  events: [
+    {
+      sport: "Taekwondo",
+      events: [
+        "Taekwondo Women's Flyweight",
+        "Taekwondo Men's Featherweight",
+        "Taekwondo Men's Heavyweight",
+        "Taekwondo Women's Featherweight",
+        "Taekwondo Women's Heavyweight",
+        "Taekwondo Men's Flyweight",
+        "Taekwondo Women's Welterweight",
+        "Taekwondo Men's Welterweight"
+      ]
+    },
+    {
+      sport: "Handball",
+      events: [
+        "Handball Men's Handball",
+        "Handball Women's Handball"
+      ]
+    }
+  ]  
+}
+```
 ### Schema
 ![schema](korobois_schema.png)
