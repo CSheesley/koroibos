@@ -20,6 +20,15 @@ class Olympian < ApplicationRecord
     where(age: maximum(:age))
   end
 
+  def self.average_weight(gender)
+    key = gender[0].upcase
+    where(sex: key).average(:weight).to_f.round(1)
+  end
+
+  def self.average_age
+    average(:age).to_f.round(1)
+  end
+
   def country
     team.country_name
   end
