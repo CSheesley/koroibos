@@ -176,6 +176,35 @@ body:
 }
 ```
 ---
+**GET /api/v1/olympian_stats**  
+Returns overall olympian statistics including: total competitors, average weight by gender, and average age for all olympians.
+
+Required Parameters:
+`no required parameters`
+
+Example Request:
+`GET https://koroibos-2016.herokuapp.com/api/v1/olympian_stats`
+```
+Request:
+Content-Type: application/json
+Accept: application/json
+```
+```
+Response:
+status: 200
+body:
+{
+  olympian_stats: {
+    total_competing_olympians: 2850,
+    average_weight: {
+      unit: "kg",
+      male_olympians: 77.9,
+      female_olympians: 61.4
+    },
+    average_age: 26.4
+  }
+}
+```
 
 ### Schema
 ![schema](korobois_schema.png)
