@@ -50,4 +50,44 @@ describe 'Events API' do
     end
   end
 
+  context 'GET api/v1/events/:id/medalists' do
+    it 'returns medalists info for a specified event - name, team, age, medal' do
+      indonesia = create(:team, country_name: "Indonesia")
+      malaysia = create(:team, country_name: "Malaysia")
+
+      tontowi = create(:olympian, name: "Tontowi Ahmad", age: 29, team_id: indonesia.id )
+      chan = create(:olympian, name: "Chan Peng Soon", age: 28, team_id: malaysia.id )
+
+      event = create(:event, event_name: "Badminton Mixed Doubles")
+
+      create(:olympian_event, olympian_id: tontowi.id, event_id: event.id, medal: 1)
+      create(:olympian_event, olympian_id: chan.id, event_id: event.id, medal: 2)
+
+      get "/api/v1/events/#{event.id}/medalists"
+
+      medalists_data = JSON.parse(response.body)
+
+      expected =  {
+        "event" => "Badminton Mixed Doubles",
+        "medalists" => [
+            {
+              "name" => "Tontowi Ahmad",
+              "team" => "Indonesia",
+              "age" => 29,
+              "medal" => "Gold"
+            },
+            {
+              "name" => "Chan Peng Soon",
+              "team" => "Malaysia",
+              "age" => 28,
+              "medal" => "Silver"
+            }
+          ]
+      }
+      
+      expect(response.status).to eq(200)
+      expect(medalists_data).to eq(expected)
+    end
+  end
+
 end
