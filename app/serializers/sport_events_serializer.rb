@@ -6,10 +6,7 @@ class SportEventsSerializer < ActiveModel::Serializer
   end
 
   def events
-    event_list = []
-    object.events.each { |event| event_list << event.event_name}
-
-    event_list
+    object.events.map { |event| event.event_name }
   end
 
 end
