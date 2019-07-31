@@ -7,9 +7,9 @@ class OlympianStatsSerializer < ActiveModel::Serializer
 
   def average_weight
     {
-      "unit" => 'kg',
-      "male_olympians" => Olympian.average_weight("M"),
-      "female_olympians" => Olympian.average_weight("F")
+      unit: 'kg',
+      male_olympians: Olympian.average_weight("M"),
+      female_olympians: Olympian.average_weight("F")
     }
   end
 
