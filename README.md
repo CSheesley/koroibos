@@ -248,5 +248,42 @@ body:
   ]  
 }
 ```
+---
+**GET /api/v1/events/:id/medalists**  
+Returns all medalists along with their name, team, age, and medal type, for a specific event based on the event `:id` in the url.
+*Note not all medalists may appear due to incomplete sample data*
+
+Required Parameters:
+`no required parameters - an event :id is needed in url`
+
+Example Request:
+`GET https://koroibos-2016.herokuapp.com/api/v1/events/250/medalists`
+```
+Request:
+Content-Type: application/json
+Accept: application/json
+```
+```
+Response:
+status: 200
+body:
+{
+  event: "Swimming Women's 200 metres Backstroke",
+  medalists: [
+    {
+      name: "Hilary Caldwell",
+      team: "Canada",
+      age: 25,
+      medal: "Bronze"
+    },
+    {
+      name: "Madeline Jane "Maya" DiRado",
+      team: "United States",
+      age: 23,
+      medal: "Gold"
+    }
+  ]
+}
+```
 ### Schema
 ![schema](korobois_schema.png)
